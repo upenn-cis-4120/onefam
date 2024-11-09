@@ -15,6 +15,7 @@ import {
     Images,
     Video,
     SendHorizonal,
+    Heart,
 } from 'lucide-react'
 
 const Navigation = () => (
@@ -77,16 +78,12 @@ const Post = ({ author, time, content, imageUrl, isActivity }) => (
 
         <div className="flex gap-6 pt-3 border-t border-gray-100 text-gray-600">
             <button className="flex items-center gap-2 hover:text-fb-blue">
-                <ThumbsUp className="w-5 h-5" />
+                <Heart className="w-5 h-5" />
                 Like
             </button>
             <button className="flex items-center gap-2 hover:text-fb-blue">
                 <MessageCircle className="w-5 h-5" />
-                Comment
-            </button>
-            <button className="flex items-center gap-2 hover:text-fb-blue">
-                <Share2 className="w-5 h-5" />
-                Share
+                Reply
             </button>
         </div>
     </div>
@@ -145,7 +142,7 @@ const Group = ({ name, hasNotif }) => (
 )
 
 const ProfileBanner = ({ groupName, members }) => (
-    <div className="bg-white rounded-lg p-6 shadow-sm mb-6">
+    <div className="bg-white rounded-lg p-6 shadow-sm mt-4 mb-6">
         <div className="relative">
             <img
                 src="/api/placeholder/400/300"
