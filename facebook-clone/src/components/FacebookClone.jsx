@@ -20,7 +20,7 @@ import {
 } from 'lucide-react'
 
 // Group data structure
-const GROUPS = {
+const INITIAL_GROUPS = {
     'Liu Family': {
         id: 'liu-family',
         name: 'Liu Family',
@@ -102,36 +102,18 @@ const GROUPS = {
 }
 
 const Navigation = ({ toggleSidebar }) => (
-    <nav className="fixed top-0 w-full bg-white shadow-sm px-2 sm:px-4 py-2 flex items-center justify-between z-50">
+    <nav className="fixed top-0 w-full bg-white shadow-sm px-2 sm:px-4 py-2 flex items-center justify-between z-30">
         <div className="flex items-center gap-2">
             <Menu
                 className="w-6 h-6 text-gray-600 cursor-pointer md:hidden"
                 onClick={toggleSidebar}
             />
-                <img
-                    src="./logo.png"
-                    alt="Logo"
-                    className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
-                />
-
+            <img
+                src="./logo.png"
+                alt="Logo"
+                className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+            />
         </div>
-        {/*<div className="hidden sm:flex items-center px-4 flex-grow max-w-xl">*/}
-        {/*    <div className="relative w-full">*/}
-        {/*        <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />*/}
-        {/*        <input*/}
-        {/*            type="text"*/}
-        {/*            placeholder="Search..."*/}
-        {/*            className="w-full bg-fb-gray rounded-full py-2 pl-10 pr-4 focus:outline-none"*/}
-        {/*        />*/}
-        {/*    </div>*/}
-        {/*</div>*/}
-        {/*<div className="flex gap-2 sm:gap-4">*/}
-        {/*    <Search className="w-6 h-6 text-gray-600 cursor-pointer sm:hidden" />*/}
-        {/*    <Home className="w-6 h-6 text-gray-600 cursor-pointer hover:text-fb-blue" />*/}
-        {/*    <Users className="hidden sm:block w-6 h-6 text-gray-600 cursor-pointer hover:text-fb-blue" />*/}
-        {/*    <Bell className="w-6 h-6 text-gray-600 cursor-pointer hover:text-fb-blue" />*/}
-        {/*    <UserCircle className="w-6 h-6 text-gray-600 cursor-pointer hover:text-fb-blue" />*/}
-        {/*</div>*/}
     </nav>
 )
 
@@ -139,14 +121,13 @@ const Sidebar = ({ children, isOpen, onClose }) => (
     <>
         {isOpen && (
             <div
-                className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+                className="fixed inset-0 bg-black bg-opacity-50 z-20 md:hidden"
                 onClick={onClose}
             />
         )}
-
         <div className={`
             fixed md:static top-0 left-0 h-full w-64 
-            bg-white z-50 transform transition-transform duration-300 ease-in-out
+            bg-white z-40 transform transition-transform duration-300 ease-in-out
             ${isOpen ? 'translate-x-0' : '-translate-x-full'}
             md:transform-none md:block md:w-auto
             p-4 md:p-4 
@@ -196,7 +177,16 @@ const Post = ({ author, time, content, imageUrl, profileImageUrl, isActivity }) 
 
         {isActivity && (
             <div className="bg-primary rounded-lg p-2 sm:p-4 sm:pb-2 sm:pt-2 shadow-sm hover:bg-fb-blue justify-end">
-                <button className="flex items-center text-white gap-1 sm:gap-2 text-sm sm:text-base">
+                <button
+                    type="button"
+                    className="flex items-center text-white gap-1 sm:gap-2 text-sm sm:text-base"
+                    onClick={() => {
+                        const url = 'https://www.chess.com/play/computer';
+                        if (url) {
+                            window.open(url, '_blank', 'noopener,noreferrer');
+                        }
+                    }}
+                >
                     <Gamepad2 className="w-5 sm:w-8 h-4 sm:h-5" />
                     Join Game
                 </button>
@@ -235,40 +225,149 @@ const Post = ({ author, time, content, imageUrl, profileImageUrl, isActivity }) 
         )}
     </div>
 )
+const CreatePost = ({ onCreatePost }) => {
+    const [postContent, setPostContent] = useState('');
+    const [isPosting, setIsPosting] = useState(false);
+    const [imagePreview, setImagePreview] = useState('');
 
-const CreatePost = () => (
-    <div className="bg-white rounded-lg p-3 sm:p-4 mb-4 shadow-sm">
-        <div className="flex gap-2 sm:gap-3">
-            <UserCircle className="w-8 sm:w-10 h-8 sm:h-10 text-gray-400" />
-            <input
-                type="text"
-                placeholder="What's on your mind?"
-                className="flex-grow bg-fb-gray rounded-full px-4 text-sm sm:text-base focus:outline-none"
-            />
-        </div>
+    const handleImageSelect = (e) => {
+        const file = e.target.files[0];
+        if (file && file.type.startsWith('image/')) {
+            try {
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    // Set preview in a controlled way
+                    if (reader.result) {
+                        setImagePreview(reader.result);
+                    }
+                };
+                reader.onerror = () => {
+                    console.error('Error reading file');
+                    setImagePreview('');
+                };
+                reader.readAsDataURL(file);
+            } catch (error) {
+                console.error('Error handling image:', error);
+                setImagePreview('');
+            }
+        }
+    };
 
-        <div className="flex justify-between sm:justify-end gap-2 sm:gap-6 pt-3">
-            <button className="flex items-center gap-1 sm:gap-2 hover:text-fb-blue text-sm sm:text-base">
-                <Images className="w-4 sm:w-5 h-4 sm:h-5" />
-                <span className="hidden sm:inline">Upload Photo</span>
-            </button>
-            <button className="flex items-center gap-1 sm:gap-2 hover:text-fb-blue text-sm sm:text-base">
-                <Gamepad2 className="w-4 sm:w-5 h-4 sm:h-5" />
-                <span className="hidden sm:inline">Games</span>
-            </button>
-            <button className="flex items-center gap-1 sm:gap-2 hover:text-fb-blue text-sm sm:text-base">
-                <Video className="w-4 sm:w-5 h-4 sm:h-5" />
-                <span className="hidden sm:inline">Start Call</span>
-            </button>
-            <div className="bg-primary rounded-lg p-2 sm:p-4 sm:pb-2 sm:pt-2 shadow-sm hover:bg-fb-blue">
-                <button className="flex items-center text-white gap-1 sm:gap-2 text-sm sm:text-base">
-                    <SendHorizonal className="w-4 sm:w-5 h-4 sm:h-5" />
-                    Send
+    const removeImage = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setImagePreview('');
+        // Reset the file input
+        const fileInput = document.querySelector('input[type="file"]');
+        if (fileInput) {
+            fileInput.value = '';
+        }
+    };
+
+    const handleSubmit = () => {
+        if (!postContent.trim() && !imagePreview) return;
+
+        setIsPosting(true);
+        try {
+            const newPost = {
+                id: Date.now(),
+                author: 'You',
+                time: 'Just now',
+                content: postContent,
+                imageUrl: imagePreview,
+                profileImageUrl: "./you.jpg"
+            };
+
+            onCreatePost(newPost);
+
+            // Reset form
+            setPostContent('');
+            setImagePreview('');
+            const fileInput = document.querySelector('input[type="file"]');
+            if (fileInput) {
+                fileInput.value = '';
+            }
+        } catch (error) {
+            console.error('Error creating post:', error);
+        } finally {
+            setIsPosting(false);
+        }
+    };
+
+    return (
+        <div className="bg-white rounded-lg p-3 sm:p-4 mb-4 shadow-sm relative z-10">
+            <div className="flex gap-2 sm:gap-3">
+                <UserCircle className="w-8 sm:w-10 h-8 sm:h-10 text-gray-400" />
+                <input
+                    type="text"
+                    placeholder="What's on your mind?"
+                    className="flex-grow bg-fb-gray rounded-full px-4 text-sm sm:text-base focus:outline-none"
+                    value={postContent}
+                    onChange={(e) => setPostContent(e.target.value)}
+                    onKeyPress={(e) => {
+                        if (e.key === 'Enter' && !e.shiftKey) {
+                            e.preventDefault();
+                            handleSubmit();
+                        }
+                    }}
+                />
+            </div>
+
+            {imagePreview && (
+                <div className="relative mt-4">
+                    <div className="relative group">
+                        <img
+                            src={imagePreview}
+                            alt="Preview"
+                            className="max-h-64 rounded-lg object-contain mx-auto"
+                        />
+                        <button
+                            onClick={removeImage}
+                            className="absolute top-2 right-2 bg-gray-800 bg-opacity-50 rounded-full p-1 hover:bg-opacity-70 transition-opacity"
+                        >
+                            <X className="w-6 h-6 text-white" />
+                        </button>
+                    </div>
+                </div>
+            )}
+
+            <div className="flex justify-between sm:justify-end gap-2 sm:gap-6 pt-3">
+                <label className="flex items-center gap-1 sm:gap-2 hover:text-fb-blue text-sm sm:text-base cursor-pointer">
+                    <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={handleImageSelect}
+                        onClick={(e) => {
+                            // Reset file input value before new selection
+                            e.target.value = '';
+                        }}
+                    />
+                    <Images className="w-4 sm:w-5 h-4 sm:h-5" />
+                    <span className="hidden sm:inline">Upload Photo</span>
+                </label>
+                <button className="flex items-center gap-1 sm:gap-2 hover:text-fb-blue text-sm sm:text-base">
+                    <Gamepad2 className="w-4 sm:w-5 h-4 sm:h-5" />
+                    <span className="hidden sm:inline">Games</span>
                 </button>
+                <button className="flex items-center gap-1 sm:gap-2 hover:text-fb-blue text-sm sm:text-base">
+                    <Video className="w-4 sm:w-5 h-4 sm:h-5" />
+                    <span className="hidden sm:inline">Start Call</span>
+                </button>
+                <div className={`rounded-lg p-2 sm:p-4 sm:pb-2 sm:pt-2 shadow-sm ${(!postContent.trim() && !imagePreview) ? 'bg-gray-400' : 'bg-primary hover:bg-fb-blue'}`}>
+                    <button
+                        className="flex items-center text-white gap-1 sm:gap-2 text-sm sm:text-base"
+                        onClick={handleSubmit}
+                        disabled={isPosting || (!postContent.trim() && !imagePreview)}
+                    >
+                        <SendHorizonal className="w-4 sm:w-5 h-4 sm:h-5" />
+                        Send
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-)
+    );
+};
 
 const ProfileBanner = ({ groupName, members, coverImage }) => (
     <div className="bg-white rounded-lg p-4 sm:p-6 shadow-sm mt-4 mb-6">
@@ -291,6 +390,7 @@ const ProfileBanner = ({ groupName, members, coverImage }) => (
 const FacebookClone = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [activeGroup, setActiveGroup] = useState('Liu Family');
+    const [groups, setGroups] = useState(INITIAL_GROUPS);
 
     const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
     const closeSidebar = () => setIsSidebarOpen(false);
@@ -300,7 +400,17 @@ const FacebookClone = () => {
         closeSidebar();
     };
 
-    const currentGroup = GROUPS[activeGroup];
+    const handleCreatePost = (newPost) => {
+        setGroups(prevGroups => ({
+            ...prevGroups,
+            [activeGroup]: {
+                ...prevGroups[activeGroup],
+                posts: [newPost, ...prevGroups[activeGroup].posts]
+            }
+        }));
+    };
+
+    const currentGroup = groups[activeGroup];
 
     return (
         <div className="min-h-screen bg-fb-gray">
@@ -309,7 +419,7 @@ const FacebookClone = () => {
             <main className="w-full max-w-full md:max-w-5xl mx-auto px-2 sm:px-4 pt-16 grid grid-cols-1 md:grid-cols-4 gap-4">
                 <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar}>
                     <h3 className="font-semibold mb-4">Your Groups</h3>
-                    {Object.entries(GROUPS).map(([name, group]) => (
+                    {Object.entries(groups).map(([name, group]) => (
                         <Group
                             key={group.id}
                             name={name}
@@ -320,13 +430,13 @@ const FacebookClone = () => {
                     ))}
                 </Sidebar>
 
-                <div className="md:col-span-3">
+                <div className="md:col-span-3 relative z-10">
                     <ProfileBanner
                         groupName={currentGroup.name}
                         members={currentGroup.members}
                         coverImage={currentGroup.coverImage}
                     />
-                    <CreatePost />
+                    <CreatePost onCreatePost={handleCreatePost} />
                     <div className="space-y-4">
                         {currentGroup.posts.map(post => (
                             <Post key={post.id} {...post} />
@@ -339,3 +449,4 @@ const FacebookClone = () => {
 }
 
 export default FacebookClone
+
