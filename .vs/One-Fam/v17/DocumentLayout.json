@@ -3,6 +3,38 @@
   "WorkspaceRootPath": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\FacebookClone.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:facebook-clone\\src\\components\\FacebookClone.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\Post.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:facebook-clone\\src\\components\\Post.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\public\\logo.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:facebook-clone\\public\\logo.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\App.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:facebook-clone\\src\\components\\App.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:facebook-clone\\src\\components\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\ChatApp.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:facebook-clone\\src\\components\\ChatApp.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:facebook-clone\\src\\components\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:facebook-clone\\src\\components\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:facebook-clone\\src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
@@ -50,15 +82,112 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Post.jsx",
+              "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\Post.jsx",
+              "RelativeDocumentMoniker": "facebook-clone\\src\\components\\Post.jsx",
+              "ToolTip": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\Post.jsx",
+              "RelativeToolTip": "facebook-clone\\src\\components\\Post.jsx",
+              "ViewState": "AgIAABAAAAAAAAAAAAAawCwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2024-11-10T00:32:02.429Z",
+              "IsPinned": true
+            },
+            {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.css",
+              "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\App.css",
+              "RelativeDocumentMoniker": "facebook-clone\\src\\components\\App.css",
+              "ToolTip": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\App.css",
+              "RelativeToolTip": "facebook-clone\\src\\components\\App.css",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-11-10T00:32:12.257Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "FacebookClone.jsx",
+              "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\FacebookClone.jsx",
+              "RelativeDocumentMoniker": "facebook-clone\\src\\components\\FacebookClone.jsx",
+              "ToolTip": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\FacebookClone.jsx",
+              "RelativeToolTip": "facebook-clone\\src\\components\\FacebookClone.jsx",
+              "ViewState": "AgIAAGkBAAAAAAAAAAAkwIMBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2024-11-10T00:31:35.403Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "logo.png",
+              "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\public\\logo.png",
+              "RelativeDocumentMoniker": "facebook-clone\\public\\logo.png",
+              "ToolTip": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\public\\logo.png",
+              "RelativeToolTip": "facebook-clone\\public\\logo.png",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-10T01:49:38.224Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "main.jsx",
+              "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\main.jsx",
+              "RelativeDocumentMoniker": "facebook-clone\\src\\components\\main.jsx",
+              "ToolTip": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\main.jsx",
+              "RelativeToolTip": "facebook-clone\\src\\components\\main.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2024-11-10T00:32:01.051Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "index.css",
+              "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\index.css",
+              "RelativeDocumentMoniker": "facebook-clone\\src\\components\\index.css",
+              "ToolTip": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\index.css",
+              "RelativeToolTip": "facebook-clone\\src\\components\\index.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-11-10T00:31:34.658Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ChatApp.css",
+              "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\ChatApp.css",
+              "RelativeDocumentMoniker": "facebook-clone\\src\\components\\ChatApp.css",
+              "ToolTip": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\ChatApp.css",
+              "RelativeToolTip": "facebook-clone\\src\\components\\ChatApp.css",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAAADgAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-11-10T00:31:30.54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "App.jsx",
+              "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\App.jsx",
+              "RelativeDocumentMoniker": "facebook-clone\\src\\components\\App.jsx",
+              "ToolTip": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\components\\App.jsx",
+              "RelativeToolTip": "facebook-clone\\src\\components\\App.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2024-11-10T00:31:29.58Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "App.jsx",
               "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\App.jsx",
               "RelativeDocumentMoniker": "facebook-clone\\src\\App.jsx",
@@ -66,12 +195,11 @@
               "RelativeToolTip": "facebook-clone\\src\\App.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2024-11-04T16:39:17.538Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T16:39:17.538Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "App.css",
               "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\App.css",
               "RelativeDocumentMoniker": "facebook-clone\\src\\App.css",
@@ -79,12 +207,11 @@
               "RelativeToolTip": "facebook-clone\\src\\App.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-11-04T16:39:15.23Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T16:39:15.23Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "index.css",
               "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\src\\index.css",
               "RelativeDocumentMoniker": "facebook-clone\\src\\index.css",
@@ -92,12 +219,11 @@
               "RelativeToolTip": "facebook-clone\\src\\index.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-11-04T16:39:14.037Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T16:39:14.037Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "package-lock.json",
               "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\package-lock.json",
               "RelativeDocumentMoniker": "facebook-clone\\package-lock.json",
@@ -105,12 +231,11 @@
               "RelativeToolTip": "facebook-clone\\package-lock.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-04T16:39:12.777Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T16:39:12.777Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "postcss.config.js",
               "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\postcss.config.js",
               "RelativeDocumentMoniker": "facebook-clone\\postcss.config.js",
@@ -118,12 +243,11 @@
               "RelativeToolTip": "facebook-clone\\postcss.config.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-11-03T19:18:14.716Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-03T19:18:14.716Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "README.md",
               "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\README.md",
               "RelativeDocumentMoniker": "facebook-clone\\README.md",
@@ -131,12 +255,11 @@
               "RelativeToolTip": "facebook-clone\\README.md",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2024-11-03T19:18:12.893Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-03T19:18:12.893Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 14,
               "Title": "tailwind.config.js",
               "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\tailwind.config.js",
               "RelativeDocumentMoniker": "facebook-clone\\tailwind.config.js",
@@ -144,12 +267,11 @@
               "RelativeToolTip": "facebook-clone\\tailwind.config.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-11-03T19:17:55.166Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-03T19:17:55.166Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 17,
               "Title": "package.json",
               "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\package.json",
               "RelativeDocumentMoniker": "facebook-clone\\package.json",
@@ -157,12 +279,11 @@
               "RelativeToolTip": "facebook-clone\\package.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-03T19:16:54.595Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-03T19:16:54.595Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "tailwind.config.js",
               "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\tailwind.config.js",
               "RelativeDocumentMoniker": "tailwind.config.js",
@@ -170,12 +291,11 @@
               "RelativeToolTip": "tailwind.config.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-11-03T19:15:13.864Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-03T19:15:13.864Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "vite.config.js",
               "DocumentMoniker": "C:\\Users\\diana\\OneDrive\\Documents\\GitHub\\One-Fam\\facebook-clone\\vite.config.js",
               "RelativeDocumentMoniker": "facebook-clone\\vite.config.js",
@@ -183,8 +303,11 @@
               "RelativeToolTip": "facebook-clone\\vite.config.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-11-03T19:14:25.784Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-03T19:14:25.784Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             }
           ]
         }
