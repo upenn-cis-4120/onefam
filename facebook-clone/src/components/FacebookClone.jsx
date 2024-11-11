@@ -39,7 +39,21 @@ const INITIAL_GROUPS = {
                 time: '2 minutes ago',
                 content: "Brunch is so yummy! 🌟",
                 imageUrl: "./pancakeImg.png",
-                profileImageUrl: "./mom.png"
+                profileImageUrl: "./mom.png",
+                comments: [
+                    {
+                        author: 'Didi', 
+                        time: 'Just now',
+                        content: "...while we are stuck in college",
+                        profileImageUrl: './didipfp.png'
+                    },
+                    {
+                        author: 'You',
+                        time: '1 min ago',
+                        content: "bruhhh mom having all the best food",
+                        profileImageUrl: './you.jpg'
+                    },
+                ]
             },
             {
                 id: 3,
@@ -101,6 +115,44 @@ const INITIAL_GROUPS = {
     }
 }
 
+const handleAddComment = (postId, comment) => {
+    setGroups((prevGroups) => {
+        const updatedGroup = { ...prevGroups[activeGroup] };
+        updatedGroup.posts = updatedGroup.posts.map((post) => {
+            if (post.id === postId) {
+                return {
+                    ...post,
+                    comments: [...(post.comments || []), comment],
+                };
+            }
+            return post;
+        });
+        return {
+            ...prevGroups,
+            [activeGroup]: updatedGroup,
+        };
+    });
+};
+
+const Comment = ({ author, time, content, profileImageUrl }) => (
+    <div className="flex items-start gap-2 sm:gap-3 mt-2 px-1 py-1">
+        <img
+            src={profileImageUrl}
+            alt={`${author}'s profile`}
+            className="w-8 sm:w-10 h-8 sm:h-10 rounded-full object-cover"
+        />
+        <div className="bg-fb-gray rounded-lg p-2 sm:p-3 flex flex-col">
+            <div className="flex items-center space-x-2 sm:space-x-3">
+                <div className="font-semibold text-sm sm:text-base">{author}</div>
+                <div className="text-gray-500 text-xs sm:text-sm">{time}</div>
+            </div>
+            <div className="text-sm sm:text-base mt-1 flex-shrink min-w-0 break-words whitespace-normal">
+                {content}
+            </div>
+        </div>
+    </div>
+);
+
 const Navigation = ({ toggleSidebar }) => (
     <nav className="fixed top-0 w-full bg-white shadow-sm px-2 sm:px-4 py-2 flex items-center justify-between z-30">
         <div className="flex items-center gap-2">
@@ -161,7 +213,30 @@ const Group = ({ name, hasNotif, isActive, onClick }) => (
     </div>
 )
 
-const Post = ({ author, time, content, imageUrl, profileImageUrl, isActivity }) => (
+const Post = ({ id, author, time, content, imageUrl, profileImageUrl, isActivity, comments = [], onAddComment, onLikePost, likes = 0 }) => {
+    const [commentText, setCommentText] = useState('');
+    const [isLiked, setIsLiked] = useState(false);
+
+    const handleCommentSubmit = () => {
+        if (commentText.trim()) {
+            const newComment = {
+                author: 'You', // or dynamically based on logged-in user
+                time: 'Just now',
+                content: commentText,
+                profileImageUrl: './you.jpg'
+            };
+            onAddComment(id, newComment);
+            setCommentText(''); // Clear input after submitting
+        }
+    };
+
+
+    const handleLikePost = () => {
+        setIsLiked(!isLiked);
+        onLikePost(id, !isLiked);
+    };
+
+    return (
     <div className="bg-white rounded-lg p-3 sm:p-4 shadow-sm">
         <div className="flex items-center gap-2 sm:gap-3 mb-4">
             <img
@@ -174,7 +249,6 @@ const Post = ({ author, time, content, imageUrl, profileImageUrl, isActivity }) 
                 <div className="text-gray-500 text-xs sm:text-sm">{time}</div>
             </div>
         </div>
-
         {isActivity && (
             <div className="bg-primary rounded-lg p-2 sm:p-4 sm:pb-2 sm:pt-2 shadow-sm hover:bg-fb-blue justify-end">
                 <button
@@ -192,7 +266,6 @@ const Post = ({ author, time, content, imageUrl, profileImageUrl, isActivity }) 
                 </button>
             </div>
         )}
-
         <div className="mb-4">
             <p className="mb-3 text-sm sm:text-base">{content}</p>
             {!isActivity && imageUrl && (
@@ -202,16 +275,27 @@ const Post = ({ author, time, content, imageUrl, profileImageUrl, isActivity }) 
                     className="w-full rounded-lg"
                 />
             )}
-        </div>
-
-        {!isActivity && (
-            <div className="flex gap-1 mt-2 px-1 justify-end">
-                <UserCircle className="w-8 sm:w-10 h-8 sm:h-10 text-gray-400" />
-                <input
-                    type="text"
-                    placeholder="Comment"
-                    className="flex-grow bg-fb-gray rounded-full px-4 text-sm sm:text-base focus:outline-none"
+            </div>
+            <div className="flex items-center gap-1 sm:gap-2 text-gray-500 text-sm sm:text-base">
+                {`${likes} ${likes === 1 ? 'Like' : 'Likes'}`}
+            </div>
+        <div className="flex gap-1 mt-2 px-1 justify-end">
+            <input
+                type="text"
+                placeholder="Write a comment..."
+                className="flex-grow bg-fb-gray rounded-full px-4 text-sm sm:text-base focus:outline-none"
+                value={commentText}
+                onChange={(e) => setCommentText(e.target.value)}
+                onKeyPress={(e) => {
+                    if (e.key === 'Enter') handleCommentSubmit();
+                }}
                 />
+                <button
+                    className={`text-[20px] sm:text-s p-0.5 sm:p-1 ${isLiked ? 'text-red-500' : 'hover:bg-fb-gray'} rounded`}
+                    onClick={handleLikePost}
+                >
+                    <Heart className="w-4 sm:w-5 h-4 sm:h-5" />
+                </button>
                 <button className="text-[20px] sm:text-s p-0.5 sm:p-1 hover:bg-fb-gray rounded">
                     😎
                 </button>
@@ -222,9 +306,16 @@ const Post = ({ author, time, content, imageUrl, profileImageUrl, isActivity }) 
                     🤯
                 </button>
             </div>
-        )}
+            <div>
+                {comments.map((comment, index) => (
+                    <Comment key={index} {...comment} />
+                ))}
+            </div>
     </div>
-)
+    );
+};
+
+
 const CreatePost = ({ onCreatePost }) => {
     const [postContent, setPostContent] = useState('');
     const [isPosting, setIsPosting] = useState(false);
@@ -275,7 +366,8 @@ const CreatePost = ({ onCreatePost }) => {
                 time: 'Just now',
                 content: postContent,
                 imageUrl: imagePreview,
-                profileImageUrl: "./you.jpg"
+                profileImageUrl: './you.jpg',
+                comments: []
             };
 
             onCreatePost(newPost);
@@ -410,6 +502,39 @@ const FacebookClone = () => {
         }));
     };
 
+    const handleAddComment = (postId, comment) => {
+        setGroups((prevGroups) => {
+            const updatedGroup = { ...prevGroups[activeGroup] };
+            updatedGroup.posts = updatedGroup.posts.map((post) => {
+                if (post.id === postId) {
+                    return {
+                        ...post,
+                        comments: [...(post.comments || []), comment],
+                    };
+                }
+                return post;
+            });
+            return {
+                ...prevGroups,
+                [activeGroup]: updatedGroup,
+            };
+        });
+    };
+
+    const handleLikePost = (postId, isLiked) => {
+        setGroups(prevGroups => ({
+            ...prevGroups,
+            [activeGroup]: {
+                ...prevGroups[activeGroup],
+                posts: prevGroups[activeGroup].posts.map(post =>
+                    post.id === postId
+                         ? { ...post, likes: isLiked ? post.likes + 1 : post.likes - 1 }
+                        : post
+                )
+            }
+        }));
+    };
+
     const currentGroup = groups[activeGroup];
 
     return (
@@ -439,7 +564,7 @@ const FacebookClone = () => {
                     <CreatePost onCreatePost={handleCreatePost} />
                     <div className="space-y-4">
                         {currentGroup.posts.map(post => (
-                            <Post key={post.id} {...post} />
+                            <Post key={post.id} {...post} onAddComment={handleAddComment} />
                         ))}
                     </div>
                 </div>
@@ -449,4 +574,3 @@ const FacebookClone = () => {
 }
 
 export default FacebookClone
-
