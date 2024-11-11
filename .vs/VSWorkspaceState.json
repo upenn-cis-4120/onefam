@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\facebook-clone",
-    "\\facebook-clone\\src"
+    "\\facebook-clone\\src",
+    "\\facebook-clone\\src\\assets",
+    "\\facebook-clone\\src\\components"
   ],
-  "SelectedNode": "\\facebook-clone\\src\\App.jsx",
   "PreviewInSolutionExplorer": false
 }
