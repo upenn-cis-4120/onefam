@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState, useEffect } from 'react'
 import {
     Home,
     Users,
@@ -10,6 +10,7 @@ import {
     Share2,
     Search,
     UserCircle,
+    CameraIcon,
     Gamepad2,
     Images,
     Video,
@@ -18,6 +19,10 @@ import {
     Menu,
     X
 } from 'lucide-react'
+import { FaArrowLeft, FaEllipsisH, FaSmile } from 'react-icons/fa';
+import './main.css';
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Group data structure
 const INITIAL_GROUPS = {
@@ -25,33 +30,33 @@ const INITIAL_GROUPS = {
         id: 'liu-family',
         name: 'Liu Family',
         members: 'You, Mom, Dad, Didi',
-        coverImage: './familyphoto.png',
+        coverImage: '/familyphoto.png',
         posts: [
             {
                 id: 1,
                 author: 'Didi wants to play: Chess',
                 isActivity: true,
-                profileImageUrl: "./didipfp.png"
+                profileImageUrl: "/didipfp.png"
             },
             {
                 id: 2,
                 author: 'Mom Liu',
                 time: '2 minutes ago',
                 content: "Brunch is so yummy! 🌟",
-                imageUrl: "./pancakeImg.png",
-                profileImageUrl: "./mom.png",
+                imageUrl: "/pancakeImg.png",
+                profileImageUrl: "/mom.png",
                 comments: [
                     {
                         author: 'Didi', 
                         time: 'Just now',
                         content: "...while we are stuck in college",
-                        profileImageUrl: './didipfp.png'
+                        profileImageUrl: '/didipfp.png'
                     },
                     {
                         author: 'You',
                         time: '1 min ago',
                         content: "bruhhh mom having all the best food",
-                        profileImageUrl: './you.jpg'
+                        profileImageUrl: '/you.jpg'
                     },
                 ]
             },
@@ -60,8 +65,8 @@ const INITIAL_GROUPS = {
                 author: 'Dad Liu',
                 time: '5 minutes ago',
                 content: "Beautiful sunset today! 🌅",
-                imageUrl: "./dad sunset.jpg",
-                profileImageUrl: "./dad.jpg"
+                imageUrl: "/dad sunset.jpg",
+                profileImageUrl: "/dad.jpg"
             }
         ]
     },
@@ -69,7 +74,7 @@ const INITIAL_GROUPS = {
         id: 'cousins',
         name: 'Cousins Only >:)',
         members: 'You, the best brother ever, elaine, charles',
-        coverImage: './sadladCat.png',
+        coverImage: '/sadladCat.png',
         posts: [
             {
                 id: 1,
@@ -77,15 +82,15 @@ const INITIAL_GROUPS = {
                 time: '1 hour ago',
                 content: "you arent ready for me to kart 🏎️",
                 imageUrl: "./mario.jpg",
-                profileImageUrl: "./didipfp.png"
+                profileImageUrl: "/didipfp.png"
             },
             {
                 id: 2,
                 author: 'You',
                 time: '2 hours ago',
                 content: "this just came out does anyone else wanna watch?",
-                imageUrl: "./pall blart.jpg",
-                profileImageUrl: "./you.jpg"
+                imageUrl: "/pall blart.jpg",
+                profileImageUrl: "/you.jpg"
             }
         ]
     },
@@ -93,23 +98,23 @@ const INITIAL_GROUPS = {
         id: 'entire-family',
         name: 'Entire Family',
         members: 'You, Mom, Dad, Didi, Aunts, Uncles, Cousins',
-        coverImage: './bigfamily.png',
+        coverImage: '/bigfamily.png',
         posts: [
             {
                 id: 1,
                 author: 'Aunt May',
                 time: '1 day ago',
                 content: "Eiffel Tower!",
-                imageUrl: "./eiffel.jpg",
-                profileImageUrl: "./may.png"
+                imageUrl: "/eiffel.jpg",
+                profileImageUrl: "/may.png"
             },
             {
                 id: 2,
                 author: 'Cousin Jack',
                 time: '2 days ago',
                 content: "Little Amy is graduating already!! 🎓",
-                imageUrl: "./gradphoto.jpg",
-                profileImageUrl: "./jack.jpg"
+                imageUrl: "/gradphoto.jpg",
+                profileImageUrl: "/jack.jpg"
             }
         ]
     }
@@ -264,6 +269,7 @@ const Post = ({ id, author, time, content, imageUrl, profileImageUrl, isActivity
                     <Gamepad2 className="w-5 sm:w-8 h-4 sm:h-5" />
                     Join Game
                 </button>
+                
             </div>
         )}
         <div className="mb-4">
@@ -320,6 +326,7 @@ const CreatePost = ({ onCreatePost }) => {
     const [postContent, setPostContent] = useState('');
     const [isPosting, setIsPosting] = useState(false);
     const [imagePreview, setImagePreview] = useState('');
+    const navigate = useNavigate();
 
     const handleImageSelect = (e) => {
         const file = e.target.files[0];
@@ -366,7 +373,7 @@ const CreatePost = ({ onCreatePost }) => {
                 time: 'Just now',
                 content: postContent,
                 imageUrl: imagePreview,
-                profileImageUrl: './you.jpg',
+                profileImageUrl: '/you.jpg',
                 comments: []
             };
 
@@ -386,8 +393,12 @@ const CreatePost = ({ onCreatePost }) => {
         }
     };
 
+    const handleTakePhoto = () => {
+        navigate('/photo');
+    }
+
     return (
-        <div className="bg-white rounded-lg p-3 sm:p-4 mb-4 shadow-sm relative z-10">
+        <div className="bg-white rounded-lg p-3 sm:p-2 mb-2 shadow-sm relative z-10">
             <div className="flex gap-2 sm:gap-3">
                 <UserCircle className="w-8 sm:w-10 h-8 sm:h-10 text-gray-400" />
                 <input
@@ -423,7 +434,7 @@ const CreatePost = ({ onCreatePost }) => {
                 </div>
             )}
 
-            <div className="flex justify-between sm:justify-end gap-2 sm:gap-6 pt-3">
+            <div className="flex justify-between sm:justify-center gap-2 sm:gap-6 pt-3">
                 <label className="flex items-center gap-1 sm:gap-2 hover:text-fb-blue text-sm sm:text-base cursor-pointer">
                     <input
                         type="file"
@@ -436,15 +447,16 @@ const CreatePost = ({ onCreatePost }) => {
                         }}
                     />
                     <Images className="w-4 sm:w-5 h-4 sm:h-5" />
-                    <span className="hidden sm:inline">Upload Photo</span>
                 </label>
                 <button className="flex items-center gap-1 sm:gap-2 hover:text-fb-blue text-sm sm:text-base">
                     <Gamepad2 className="w-4 sm:w-5 h-4 sm:h-5" />
-                    <span className="hidden sm:inline">Games</span>
                 </button>
                 <button className="flex items-center gap-1 sm:gap-2 hover:text-fb-blue text-sm sm:text-base">
                     <Video className="w-4 sm:w-5 h-4 sm:h-5" />
-                    <span className="hidden sm:inline">Start Call</span>
+                </button>
+                <button className="flex items-center gap-1 sm:gap-2 hover:text-fb-blue text-sm sm:text-base"
+                onClick={handleTakePhoto}>
+                    <CameraIcon className="w-4 sm:w-5 h-4 sm:h-5" />
                 </button>
                 <div className={`rounded-lg p-2 sm:p-4 sm:pb-2 sm:pt-2 shadow-sm ${(!postContent.trim() && !imagePreview) ? 'bg-gray-400' : 'bg-primary hover:bg-fb-blue'}`}>
                     <button
@@ -453,7 +465,6 @@ const CreatePost = ({ onCreatePost }) => {
                         disabled={isPosting || (!postContent.trim() && !imagePreview)}
                     >
                         <SendHorizonal className="w-4 sm:w-5 h-4 sm:h-5" />
-                        Send
                     </button>
                 </div>
             </div>
@@ -462,7 +473,7 @@ const CreatePost = ({ onCreatePost }) => {
 };
 
 const ProfileBanner = ({ groupName, members, coverImage }) => (
-    <div className="bg-white rounded-lg p-4 sm:p-6 shadow-sm mt-4 mb-6">
+    <div className="bg-white rounded-lg p-2 sm:p-4 shadow-sm mt-2 mb-3">
         <div className="relative">
             <img
                 src={coverImage}
@@ -483,6 +494,32 @@ const FacebookClone = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [activeGroup, setActiveGroup] = useState('Liu Family');
     const [groups, setGroups] = useState(INITIAL_GROUPS);
+    const { groupName, newPost } = useParams();
+    const currentGroup = groups[groupName];
+    
+    useEffect(() => {
+        if (newPost === 'true') { // Ensure newPost is correctly checked
+            setGroups((prevGroups) => ({
+                ...prevGroups,
+                [groupName]: {
+                    ...prevGroups[groupName],
+                    posts: [
+                        ...prevGroups[groupName].posts,
+                        {
+                            id: prevGroups[groupName].posts.length + 1, // Generate a new ID
+                            author: 'You',
+                            time: 'Now',
+                            content: "Working with friends! 🌅",
+                            imageUrl: "/photo.png",
+                            profileImageUrl: "/you.jpg",
+                        },
+                    ],
+                },
+            }));
+        }
+    }, [newPost, groupName]); 
+
+    const navigate = useNavigate();
 
     const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
     const closeSidebar = () => setIsSidebarOpen(false);
@@ -535,42 +572,36 @@ const FacebookClone = () => {
         }));
     };
 
-    const currentGroup = groups[activeGroup];
+    const goBack = () => {
+        navigate('/');
+    }
 
     return (
-        <div className="min-h-screen bg-fb-gray">
-            <Navigation toggleSidebar={toggleSidebar} />
-
-            <main className="w-full max-w-full md:max-w-5xl mx-auto px-2 sm:px-4 pt-16 grid grid-cols-1 md:grid-cols-4 gap-4">
-                <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar}>
-                    <h3 className="font-semibold mb-4">Your Groups</h3>
-                    {Object.entries(groups).map(([name, group]) => (
-                        <Group
-                            key={group.id}
-                            name={name}
-                            hasNotif={name !== 'Entire Family'}
-                            isActive={activeGroup === name}
-                            onClick={() => handleGroupClick(name)}
-                        />
-                    ))}
-                </Sidebar>
-
-                <div className="md:col-span-3 relative z-10">
+        <div className="bg-fb-gray min-h-screen flex justify-center items-center">
+    <main
+        className="bg-white rounded-lg overflow-hidden w-full max-w-sm mx-auto h-[90vh] flex flex-col"
+    >
+        <header className="flex items-center justify-between px-2 py-2 bg-blue-500 text-white">
+            <FaArrowLeft className="w-5 h-5 cursor-pointer" onClick={goBack}/>
+            <h1 className="text-lg font-semibold">{currentGroup.name}</h1>
+            <FaEllipsisH className="w-5 h-5 cursor-pointer" />
+        </header>
+                <div className="flex-grow overflow-y-auto">
                     <ProfileBanner
                         groupName={currentGroup.name}
                         members={currentGroup.members}
                         coverImage={currentGroup.coverImage}
                     />
                     <CreatePost onCreatePost={handleCreatePost} />
-                    <div className="space-y-4">
-                        {currentGroup.posts.map(post => (
+                    <div className="space-y-2 px-2">
+                        {currentGroup.posts.map((post) => (
                             <Post key={post.id} {...post} onAddComment={handleAddComment} />
                         ))}
                     </div>
                 </div>
             </main>
         </div>
-    )
+    );    
 }
 
 export default FacebookClone

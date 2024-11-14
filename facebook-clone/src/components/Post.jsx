@@ -21,19 +21,18 @@ import { IoSend } from "react-icons/io5";
 import './ChatApp.css';
 
 
-
 const FacebookClone = () => {
 
     return (
-        <div className="min-h-screen bg-fb-gray">
-            <main className="max-w-lg mx-auto px-4 pt-16 grid grid-cols-1 gap-4">
-                <div className="col-span-1">
-                <div className="chat-app">
-                    <header className="header">
-                      <FaArrowLeft className="icon" />
-                      <h1>Liu fam!!</h1>
-                      <FaEllipsisH className="icon" />
-                    </header>
+      <div className="bg-fb-gray min-h-screen flex justify-center items-center">
+      <main
+          className="bg-white rounded-lg overflow-hidden w-full max-w-sm mx-auto h-[90vh] flex flex-col"
+      >
+          <header className="flex items-center justify-between px-4 py-3 bg-blue-500 text-white">
+              <FaArrowLeft className="w-5 h-5 cursor-pointer" />
+              <h1 className="text-lg font-semibold">Liu fam!!</h1>
+              <FaEllipsisH className="w-5 h-5 cursor-pointer" />
+          </header>
 
                     <div className="content">
                       <div className="image-container">
@@ -80,8 +79,6 @@ const FacebookClone = () => {
                         <button className="send-button"><IoSend className="emoji-icon" /></button>
                       </div>
                     </div>
-                  </div>
-                </div>
             </main>
         </div>
     )

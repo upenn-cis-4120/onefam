@@ -1,18 +1,30 @@
 import React from 'react';
 import './Camera.css';
 import { FaArrowLeft, FaEllipsisH, FaSmile, FaTimes, FaSyncAlt, FaImage, FaClock } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const CameraApp = () => {
+  const navigate = useNavigate();
+
+  const handleCapture = () => {
+    navigate('/photoshare');
+  }
+
+  const goBack = () => {
+    navigate(`/group/Liu Family`);
+}
+
   return (
-    <div className="min-h-screen bg-fb-gray">
-      <main className="max-w-lg mx-auto px-4 pt-16 grid grid-cols-1 gap-4">
-        <div className="col-span-1">
-          <div className="post-video">
-            <header className="header">
-              <FaArrowLeft className="icon" />
-              <h1>Liu fam!!</h1>
-              <FaEllipsisH className="icon" />
-            </header>
+    <div className="bg-fb-gray min-h-screen flex justify-center items-center">
+      <main
+          className="bg-white rounded-lg overflow-hidden w-full max-w-sm mx-auto h-[90vh] flex flex-col"
+      >
+          <header className="flex items-center justify-between px-4 py-3 bg-blue-500 text-white">
+              <FaArrowLeft className="w-5 h-5 cursor-pointer" onClick={goBack}/>
+              <h1 className="text-lg font-semibold">Liu fam!!</h1>
+              <FaEllipsisH className="w-5 h-5 cursor-pointer" />
+          </header>
+
 
             <div className="camera-app">
               <div className="camera-header">
@@ -30,12 +42,10 @@ const CameraApp = () => {
               </div>
 
               <div className="camera-footer">
-                <div className="capture-button" />
+                <div className="capture-button" onClick={handleCapture}/>
                 <div className="rectangle-button" />
               </div>
             </div>
-          </div>
-        </div>
       </main>
     </div>
   );
