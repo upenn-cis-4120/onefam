@@ -103,21 +103,23 @@ const INITIAL_GROUPS = {
 const Group = ({ name, hasNotif, isActive, onClick }) => (
     <div
         className={`flex items-center justify-between p-4 rounded-lg cursor-pointer shadow-sm
-            ${isActive ? 'bg-blue-500 text-white' : 'bg-white text-black'}`}
+            bg-white text-black
+            hover:bg-blue-500 hover:text-white border-b-2 border-transparent hover:border-blue-500`}
         onClick={onClick}
     >
         <div className="flex items-center gap-3">
             <div className="relative">
-                <UserCircle className={`w-8 h-8 ${isActive ? 'text-white' : 'text-blue-500'}`} />
+                <UserCircle className={`w-8 h-8 'text-blue-500'`} />
                 <div
                     className={`absolute bottom-0 right-0 w-3 h-3 rounded-full
-                        ${hasNotif ? (isActive ? 'bg-white' : 'bg-red-500') : 'bg-gray-400'}`}
+                        ${hasNotif ? 'bg-red-500' : 'bg-gray-400'}`}
                 />
             </div>
             <span className="text-lg font-semibold">{name}</span>
         </div>
     </div>
 );
+
 
 
 const ChatGroups = () => {

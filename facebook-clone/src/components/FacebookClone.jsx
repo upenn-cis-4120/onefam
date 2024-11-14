@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react'
+﻿import { useState, useEffect,useRef } from 'react'
 import {
     Home,
     Users,
@@ -497,8 +497,12 @@ const FacebookClone = () => {
     const { groupName, newPost } = useParams();
     const currentGroup = groups[groupName];
     
+    // Ref to track if the new post has been added already
+    const hasPostBeenAdded = useRef(false);
+
     useEffect(() => {
-        if (newPost === 'true') { // Ensure newPost is correctly checked
+        if (newPost === 'true' && !hasPostBeenAdded.current) {
+            // Add the new post to the group
             setGroups((prevGroups) => ({
                 ...prevGroups,
                 [groupName]: {
@@ -516,6 +520,9 @@ const FacebookClone = () => {
                     ],
                 },
             }));
+            
+            // Mark that the post has been added
+            hasPostBeenAdded.current = true;
         }
     }, [newPost, groupName]); 
 

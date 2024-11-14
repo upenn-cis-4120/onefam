@@ -11,7 +11,7 @@ const CameraApp = () => {
   }
 
   const goBack = () => {
-    navigate(`/group/Liu Family`);
+    navigate(`/group/Liu Family/${false}`);
 }
 
   return (
@@ -28,7 +28,7 @@ const CameraApp = () => {
 
             <div className="camera-app">
               <div className="camera-header">
-                <FaTimes className="icon close-icon" />
+                <FaTimes className="icon close-icon"  onClick={goBack}/>
               </div>
 
               <div className="camera-preview">
